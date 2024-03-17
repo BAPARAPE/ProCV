@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+
+    @media print {
+        /* Appliquer des styles spécifiques à l'impression */
+        .main {
+            max-width: 800px; /* Définir la largeur maximale pour l'impression */
+            margin: auto; /* Centrer le contenu */
+        }
+        /* Ajouter d'autres styles spécifiques à l'impression si nécessaire */
+    }
+
+    body {
+        /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    } 
+
+    .main {
+        margin: auto;
+        max-width: 800px;
+        background-color: rgb(251, 251, 251);
+    }  
+
+    .top {
+        background-color: rgb(65, 131, 190);
+        height: 129px;
+        color: white;
+    }
+
+    .nom1 h1 {
+        padding-top: 16px;
+        text-align: center;   
+        font-size: 24px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .noa {
+        width: 160px;
+        margin-top: 1px;
+        color: black;
+        height: 0.2px;
+    }
+
+    .nom2 {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 34px;
+        margin-right: 34px;
+        height: 30px;
+        font-size: 15px;
+        padding-bottom: 17px;
+    }
+
+    .mid {
+        margin-right: 18px;
+        margin-left: 21px;
+        padding-bottom: 50px;
+    }
+
+    .mid1 {
+        display: flex;
+    }
+
+    .mid2 {
+        margin-left: 30px;
+        width: 548px;
+        margin-right: 10px;
+    }
+
+    .midA {
+        width: 160px;
+    }
+</style>
+
+<section class="main">
+        
+    <div class="top">
+        <div class="nom1">
+            <h1>{{ prenomcv }} {{ nomcv }}</h1> 
+            <hr class="noa">
+        </div>
+
+        <div class="nom2">
+           <p>{{ numero }}</p>
+           <p>{{ emailcv }}</p>
+           <p>{{ adresse }}</p>
+       </div>
+    </div>
+
+    <div class="container">
+        <div class="mid">
+            <h4>PROFIL PROFESSIONNEL</h4>
+            <p class="mid0">{{ profil }}</p>
+            
+            <h4>EXPERIENCES</h4>
+            {% for experience in experiences %}
+            <div class="mid1">
+                <p class="midA">{{ experience.date_debut }} - {{ experience.date_fin }}<br>{{ experience.adresse_exp }}</p>
+                <p class="mid2"><b>{{ experience.societe }}<br>{{ experience.poste }}</b><br>{{ experience.description }}</p>
+            </div>
+            {% endfor %}
+            
+            <h4>FORMATIONS</h4>
+            {% for formation in formations %}
+            <div class="mid1">
+                <p class="midA">{{ formation.date_debut_formation }} - {{ formation.date_fin_formation }}<br>{{ formation.adresse_formation }}</p>
+                <p class="mid2"><b>{{ formation.diplome }}</b><br>{{ formation.etablissement }}</p>
+            </div>
+            {% endfor %}
+
+            <h4>COMPETENCES</h4>
+            <p>{{ competence }}</p>
+
+            <h4>LANGUES</h4>
+            <p>Français: {{ francais }}</p>
+            <p>Anglais: {{ anglais }}</p>
+        </div>
+    </div>
+    
+</section>
+
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+
+        body {
+            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+        } 
+
+        .main{
+            margin: auto;
+            max-width: 800px;
+            background-color: rgb(251, 251, 251);
+            
+        }  
+        .top{
+            background-color: rgb(65, 131, 190) ;
+            /* background-color: rgb(65, 131, 190);  rgb(194, 189, 189)*/
+            height: 129px;
+            color: white;
+        }
+
+        .nom1 h1{
+            padding-top: 16px;
+            text-align: center;   
+            font-size: 24px;
+        
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+
+        .noa{
+            width: 160px;
+            margin-top: 1px;
+            color: black;
+            height: 0.2px;
+        }
+
+        .nom2{
+            display: flex;
+            justify-content:space-between;
+            margin-left: 34px;
+            margin-right: 34px;
+            height: 30px;
+            font-size: 15px;
+            padding-bottom: 17px;
+
+        }
+
+        .mid{
+            margin-right: 18px;
+            margin-left: 21px;
+            padding-bottom: 50px;
+        }
+        .mid1{
+            display: flex;
+        }
+
+        .mid2{
+            margin-left: 30px;
+            width: 548px;
+            margin-right: 10px;
+            
+        }
+        .midA{
+            width: 160px;
+            
+        }
+    </style>
+
+<section class="main">
+        
+    <div class="top">
+        <div class="nom1">
+            <h1>{{ prenomcv }} {{ nomcv }}</h1> 
+            <hr class="noa">
+        </div>
+
+        <div class="nom2">
+           <p>{{ numero }}</p>
+           <p>{{ emailcv }}</p>
+           <p>{{ adresse }}</p>
+       </div>
+    </div>
+    <div class="container">
+        <div class="mid">
+            <h4>PROFIL PROFESSIONNEL</h4>
+            <p class="mid0"> {{ profil }} </p>
+            
+            <h4>EXPERIENCES</h4>
+            <div class="mid1">
+                <p class="midA"> {{ date_debut1 }} - {{ date_fin1  }} <br> {{ adresse_exp1  }}</p>
+                <p class="mid2"> <b>{{ societe1 }} <br> {{ poste1 }} </b> <br>{{ description1  }} </p>
+            </div>
+            <div class="mid1">
+                <p class="midA"> {{ date_debut2 }} - {{ date_fin2 }} <br> {{ adresse_exp2  }}</p>
+                <p class="mid2"> <b>{{ societe2 }} <br> {{ poste2 }} </b> <br>{{ description2  }} </p>
+            </div>
+            
+            <h4>FORMATION</h4>
+            <div class="mid1">
+                <p class="midA"> {{ date_debut_formation1 }} - {{ date_fin_formation1 }} <br> {{ adresse_formation1 }}</p>
+                <p class="mid2"> <b>{{ diplome1 }} </b> <br> {{ etablissement1 }} </p>
+            </div>
+            <div class="mid1">
+                <p class="midA"> {{ date_debut_formation2 }} - {{ date_fin_formation2 }} <br> {{ adresse_formation2 }}</p>
+                <p class="mid2"> <b>{{ diplome2 }} </b> <br> {{ etablissement2 }} </p>
+            </div>
+
+            <h4>COMPETENCES </h4>
+            <p>{{ competence }}</p>
+
+            <h4>LANGUES</h4>
+            <p>Français: {{ francais }}</p>
+            <p>Anglais : {{ anglais }}</p>
+        </div>
+    </div>
+    
+</section>
+
+{% endblock %}

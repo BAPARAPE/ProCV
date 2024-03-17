@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="static/pdf/style4.css">
+
+    <section class="navbar">
+        <div class="navbar1">
+            <div class="bta">
+                <a href="">RayCV</a>
+            </div>
+            <div class="btb">
+                <i class="fa-solid fa-comment"></i><a href="">CONTACTEZ NOUS</a>
+                {% if user.is_authenticated %}
+                   <i class="fas fa-user"></i><a class="" href="{% url 'logout_user' %}">SE DECONNECTER</a>
+                {% else %}
+                   <i class="fas fa-user"></i><a class="" href="{% url 'login_user' %}">SE CONNECTER</a>
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="main1">
+            <h2>Démarrez votre carrière avec RayCV <br> le meilleur site pour faire un CV</h2>
+            <p>Marquez les esprits avec notre modèle spécialement conçus pour valoriser votre profil unique. Ensuite, Téléchargez-le facilement sous format PDF. <br> Les recruteurs, demandeurs d'emploi et étudiants nous font confiance. Alors pourquoi pas vous?</p>
+            <a href="{% url 'formulaire' %}"><button class="maina1">Commencez</button></a>
+        </div>
+        <div class="main2">
+          <img src="/media/products/7bd5564e4605799440dfdb506c409343.jpg" alt="">
+          <img src="/media/products/21669ead75a69898500ea3a89d1c2955.jpg" alt="">
+        </div>
+
+    </section>
+
+    <section class="main3">
+        <h2>LE CV (curriculum vitae)</h2>
+        <div>
+            <h3>Qu'est ce qu'un curriculum vitae?</h3>
+            <p>CV est une abréviation du terme latin: curriculum vitae, qui signifie parcours de vie.
+                Votre CV mentionne vos études, vos expériences professionnelles et vos compétences. Le CV permet au recruteur de se forger rapidement une opinion de vos expériences de vie, vos connaissances et d'être en mesure de juger votre aptitude à remplir la fonction vacante, sur base de son contenu.</p>
+        </div>
+        <div>
+            <h3>Astuces pour la rédaction d'un CV parfait</h3>
+            <p class="main4">
+                - Communiquez uniquement des informations pertinentes qui présentent une valeur ajoutée pour l'emploi pour lequel vous sollicitez. <br>
+                - Ne mentionnez pas de loisirs ou d'intérêts qui présentent un caractère bizarre ou qui peuvent soulever certaines questions. <br>
+                - Communiquez les informations principales sur la première page. Ajoutez un profil personnel concis vous concernant. <br>
+                - Utilisez des listes à puces et des listes numérotées afin d'optimaliser la clarté de votre CV pour les recruteurs. <br>
+                - Optez toujours pour la rédaction d'un CV chronologique, hormis en cas de dispositions spéciales stipulées par l'offre d'emploi. <br>
+                - Présentez votre CV de manière brève mais persuasive. Mentionnez les informations importantes de manière concise. <br>
+            </p>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+
+*{
+   
+    font-family: Georgia, 'Times New Roman', Times, serif;  
+}
+body{
+    width: 1700px;
+}
+.navbar{
+    position: sticky;
+    z-index: 1000;
+    /*width: 1150px; <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+*/
+    margin-left:134px ;
+    width: 1400px;
+}
+.navbar1{
+    
+    padding-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 13px auto;
+    position: relative;
+    object-fit: cover;
+    
+}
+.navbar1 a{
+    text-decoration: none;
+}
+.bta a{
+    font-size: 39px;
+    color: rgb(65, 131, 190);
+    text-decoration: none;
+    margin-right: 480px;
+}
+
+.btb a{
+    font-size:21px;
+    color: black;
+    margin-right: 16px;
+}
+.btb i{
+    color: rgb(65, 131, 190);
+    margin-right: 7px;
+}
+.main{   
+    margin: 20px auto;
+}
+.main1{
+    height: 260px;
+}
+.main1 h2{
+    font-size: 36px;
+    text-align: center;
+    margin-top: 112px;
+}
+.main1 p{
+    text-align: center;
+    font-size: 20px;
+}
+.main1a{
+    display: flex;
+    width: 800px;
+    margin-left: 410px;
+    margin-top: 30px;
+}
+.maina1{
+    background-color: rgb(65, 131, 190) ;
+    width: 130px;
+    height: 40px;
+    font-size: 19px;
+    color: white;
+    border: rgb(65, 131, 190);
+    margin-left: 766px;
+    margin-top: 12px;
+}
+.main1a button{
+    background-color: rgb(65, 131, 190) ;
+    width: 130px;
+    height: 40px;
+    font-size: 19px;
+    color: white;
+    border: rgb(65, 131, 190);
+    margin-left: 80px;
+    margin-top: 12px;
+}
+
+.main2{
+    display: flex;
+    margin-left:145px;
+    margin-top: 40px;
+}
+.main2 img{
+    height: 422px;
+    width: 669px;
+    margin-right: 28px;
+}
+.main3{
+    width: 1150px;
+    margin-left: 96px;
+    margin-top: 80px;
+}
+.main3 h2{
+    text-align: center;
+ 
+    font-size: 29px;
+    margin-bottom: 25px;
+}
+.main3 h3{
+    color: rgb(65, 131, 190);
+    font-size: 22px;
+    margin-top: 42px;
+}
+.main3 p{
+    font-size: 17px;
+}
+.main4{
+    padding-bottom: 5px;
+}
+
+.formb{
+    margin-bottom: 35px;
+}
+.formb h2{
+    color:rgb(65, 131, 190) ;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.forma{
+    width: 760px;
+    margin-left: 450px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.forma1{
+    font-weight: bold;
+}
+.btn9{
+    color: rgb(65, 131, 190);
+}

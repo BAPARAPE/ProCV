@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/pdf/styleform.css">
+
+<div class="container">
+  <h2>Créer un CV</h2>
+  <form method="POST">
+      {% csrf_token %}
+      <!-- Informations personnelles -->
+      <div class="form-group">
+          <label for="nom">Nom:</label>
+          <input type="text" class="form-control"  name="nomcv" required>
+      </div>
+      <div class="form-group">
+          <label for="prenom">Prénom:</label>
+          <input type="text" class="form-control"  name="prenomcv" required>
+      </div>
+      <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" name="emailcv" required>
+      </div>
+      <div class="form-group">
+          <label for="numero">Numéro de téléphone:</label>
+          <input type="text" class="form-control" id="numero" name="numero" required>
+      </div>
+      <div class="form-group">
+          <label for="adresse">Adresse:</label>
+          <input type="text" class="form-control" id="adresse" name="adresse" required>
+      </div>
+      <div class="form-group">
+          <label for="profil">Profil professionnel:</label>
+          <input type="text" class="form-control" id="profil" name="profil" required>
+      </div>
+      <div class="form-group">
+          <label for="competence">Compétences:</label>
+          <input type="text" class="form-control" id="competence" name="competence" required>
+      </div>
+      <div class="form-group">
+          <label for="interet">Centre d'intérêt:</label>
+          <input type="text" class="form-control" id="interet" name="interet" required>
+      </div>
+
+      <!-- Expérience 1 -->
+      <h3>Expérience 1</h3>
+      <div class="form-group">
+          <label for="poste1">Poste:</label>
+          <input type="text" class="form-control" id="poste1" name="poste1" required>
+      </div>
+      <div class="form-group">
+          <label for="societe1">Société:</label>
+          <input type="text" class="form-control" id="societe1" name="societe1" required>
+      </div>
+      <div class="form-group">
+          <label for="adresse_exp1">Adresse (Expérience 1):</label>
+          <input type="text" class="form-control" id="adresse_exp1" name="adresse_exp1" required>
+      </div>
+      <div class="form-group">
+          <label for="date_debut1">Date de début (Expérience 1):</label>
+          <input type="date" class="form-control" id="date_debut1" name="date_debut1" required>
+      </div>
+      <div class="form-group">
+          <label for="date_fin1">Date de fin (Expérience 1):</label>
+          <input type="date" class="form-control" id="date_fin1" name="date_fin1">
+      </div>
+      <div class="form-group">
+          <label for="description1">Description (Expérience 1):</label>
+          <textarea class="form-control" id="description1" name="description1" rows="3"></textarea>
+      </div>
+
+      <!-- Expérience 2 -->
+      <h3>Expérience 2</h3>
+      <div class="form-group">
+          <label for="poste2">Poste:</label>
+          <input type="text" class="form-control" id="poste2" name="poste2" >
+      </div>
+      <div class="form-group">
+          <label for="societe2">Société:</label>
+          <input type="text" class="form-control" id="societe2" name="societe2" >
+      </div>
+      <div class="form-group">
+          <label for="adresse_exp2">Adresse (Expérience 2):</label>
+          <input type="text" class="form-control" id="adresse_exp2" name="adresse_exp2" >
+      </div>
+      <div class="form-group">
+          <label for="date_debut2">Date de début (Expérience 2):</label>
+          <input type="date" class="form-control" id="date_debut2" name="date_debut2" >
+      </div>
+      <div class="form-group">
+          <label for="date_fin2">Date de fin (Expérience 2):</label>
+          <input type="date" class="form-control" id="date_fin2" name="date_fin2">
+      </div>
+      <div class="form-group">
+          <label for="description2">Description (Expérience 2):</label>
+          <textarea class="form-control" id="description2" name="description2" rows="3"></textarea>
+      </div>
+
+      <!-- Formation 1 -->
+      <h3>Formation 1</h3>
+      <div class="form-group">
+          <label for="diplome1">Diplôme:</label>
+          <input type="text" class="form-control" id="diplome1" name="diplome1" required>
+      </div>
+      <div class="form-group">
+          <label for="etablissement1">Établissement:</label>
+          <input type="text" class="form-control" id="etablissement1" name="etablissement1" required>
+      </div>
+      <div class="form-group">
+          <label for="adresse_formation1">Adresse (Formation 1):</label>
+          <input type="text" class="form-control" id="adresse_formation1" name="adresse_formation1" required>
+      </div>
+      <div class="form-group">
+          <label for="date_debut_formation1">Date de début (Formation 1):</label>
+          <input type="date" class="form-control" id="date_debut_formation1" name="date_debut_formation1" required>
+      </div>
+      <div class="form-group">
+          <label for="date_fin_formation1">Date de fin (Formation 1):</label>
+          <input type="date" class="form-control" id="date_fin_formation1" name="date_fin_formation1">
+      </div>
+
+      <!-- Formation 2 -->
+      <h3>Formation 2</h3>
+      <div class="form-group">
+          <label for="diplome2">Diplôme:</label>
+          <input type="text" class="form-control" id="diplome2" name="diplome2" required>
+      </div>
+      <div class="form-group">
+          <label for="etablissement2">Établissement:</label>
+          <input type="text" class="form-control" id="etablissement2" name="etablissement2" required>
+      </div>
+      <div class="form-group">
+          <label for="adresse_formation2">Adresse (Formation 2):</label>
+          <input type="text" class="form-control" id="adresse_formation2" name="adresse_formation2" required>
+      </div>
+      <div class="form-group">
+          <label for="date_debut_formation2">Date de début (Formation 2):</label>
+          <input type="date" class="form-control" id="date_debut_formation2" name="date_debut_formation2" required>
+      </div>
+      <div class="form-group">
+          <label for="date_fin_formation2">Date de fin (Formation 2):</label>
+          <input type="date" class="form-control" id="date_fin_formation2" name="date_fin_formation2">
+      </div>
+
+      <!-- Langue -->
+      <div class="form-group">
+          <label for="anglais">Niveau d'anglais:</label>
+          <input type="text" class="form-control" id="anglais" name="anglais" required>
+      </div>
+      <div class="form-group">
+          <label for="francais">Niveau de français:</label>
+          <input type="text" class="form-control" id="francais" name="francais" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Créer CV</button>
+  </form>
+</div>
+
+{% endblock %}

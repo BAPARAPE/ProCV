@@ -1,0 +1,219 @@
+
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/pdf/styleform.css">
+
+<div class="container">
+    <h2>Créer un CV</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Informations personnelles -->
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" class="form-control"  name="nomcv" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" class="form-control"  name="prenomcv" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="emailcv" required>
+        </div>
+        <div class="form-group">
+            <label for="numero">Numéro de téléphone:</label>
+            <input type="text" class="form-control" id="numero" name="numero" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" required>
+        </div>
+        <div class="form-group">
+            <label for="profil">Profil professionnel:</label>
+            <input type="text" class="form-control" id="profil" name="profil" required>
+        </div>
+        <div class="form-group">
+            <label for="competence">Compétences:</label>
+            <input type="text" class="form-control" id="competence" name="competence" required>
+        </div>
+        <div class="form-group">
+            <label for="interet">Centre d'intérêt:</label>
+            <input type="text" class="form-control" id="interet" name="interet" required>
+        </div>
+  
+        <!-- Ajoutez vos champs pour les informations personnelles ici -->
+        
+        <!-- Expériences -->
+        <div id="experiences">
+            <h3>Expérience </h3>
+            <div class="form-group">
+                <label for="poste1">Poste:</label>
+                <input type="text" class="form-control" id="poste1" name="poste1" required>
+            </div>
+            <div class="form-group">
+                <label for="societe1">Société:</label>
+                <input type="text" class="form-control" id="societe1" name="societe1" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse_exp1">Adresse:</label>
+                <input type="text" class="form-control" id="adresse_exp1" name="adresse_exp1" required>
+            </div>
+            <div class="form-group">
+                <label for="date_debut1">Date de début:</label>
+                <input type="date" class="form-control" id="date_debut1" name="date_debut1" required>
+            </div>
+            <div class="form-group">
+                <label for="date_debut1">Date de début:</label>
+                <input type="date" class="form-control" id="date_fin1" name="date_fin1">
+            </div>
+            <div class="form-group">
+                <label for="description1">Description :</label>
+                <textarea class="form-control" id="description1" name="description1" rows="3"></textarea>
+            </div>
+            <!-- Ajoutez vos champs pour l'expérience 1 ici -->
+        </div>
+        <div id="experiences-supplementaires"></div>
+        <button type="button" class="btn btn-secondary" onclick="ajouterExperience()">Ajouter une expérience</button>
+        
+        <!-- Formations -->
+        <div id="formations">
+            <h3>Formation </h3>
+            <div class="form-group">
+                <label for="diplome1">Diplôme:</label>
+                <input type="text" class="form-control" id="diplome1" name="diplome1" required>
+            </div>
+            <div class="form-group">
+                <label for="etablissement1">Établissement:</label>
+                <input type="text" class="form-control" id="etablissement1" name="etablissement1" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse_formation1">Adresse (Formation 1):</label>
+                <input type="text" class="form-control" id="adresse_formation1" name="adresse_formation1" required>
+            </div>
+            <div class="form-group">
+                <label for="date_debut_formation1">Date de début (Formation 1):</label>
+                <input type="date" class="form-control" id="date_debut_formation1" name="date_debut_formation1" required>
+            </div>
+            <div class="form-group">
+                <label for="date_fin_formation1">Date de fin (Formation 1):</label>
+                <input type="date" class="form-control" id="date_fin_formation1" name="date_fin_formation1">
+            </div>
+            <!-- Ajoutez vos champs pour la formation 1 ici -->
+        </div>
+        <div id="formations-supplementaires"></div>
+        <button type="button" class="btn btn-secondary" onclick="ajouterFormation()">Ajouter une formation</button>
+        
+        <!-- Langue -->
+        {% comment %} <div class="form-group">
+            <label for="anglais">Niveau d'anglais:</label>
+            <input type="text" class="form-control" id="anglais" name="anglais" required>
+        </div>
+        <div class="form-group">
+            <label for="francais">Niveau de français:</label>
+            <input type="text" class="form-control" id="francais" name="francais" required>
+        </div> {% endcomment %}
+
+        <div class="form-group">
+            <label for="anglais">Niveau d'anglais:</label>
+            <select class="form-control" id="anglais" name="anglais" required>
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="francais">Niveau de français:</label>
+            <select class="form-control" id="francais" name="francais" required>
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>
+        </div>
+
+        <!-- Ajoutez vos champs pour la langue ici -->
+        
+        <button type="submit" class="btn-submit">Créer CV</button>
+    </form>
+</div>
+
+<script>
+  var experiencesCount = 1;
+  var formationsCount = 1;
+
+  // Fonction pour ajouter dynamiquement des champs de formulaire pour une nouvelle expérience
+  function ajouterExperience() {
+      if (experiencesCount < 3) {
+          experiencesCount++;
+          var experiencesDiv = document.getElementById('experiences-supplementaires');
+          var nouvelleExperienceDiv = document.createElement('div');
+          nouvelleExperienceDiv.className = 'experience';
+          nouvelleExperienceDiv.innerHTML = `
+              <h3>Expérience</h3>
+              <div class="form-group">
+                  <label for="poste${experiencesCount}">Poste:</label>
+                  <input type="text" class="form-control" id="poste${experiencesCount}" name="poste${experiencesCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="societe${experiencesCount}">Société:</label>
+                  <input type="text" class="form-control" id="societe${experiencesCount}" name="societe${experiencesCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="adresse_exp${experiencesCount}">Adresse:</label>
+                  <input type="text" class="form-control" id="adresse_exp${experiencesCount}" name="adresse_exp${experiencesCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="date_debut${experiencesCount}">Date de début:</label>
+                  <input type="date" class="form-control" id="date_debut${experiencesCount}" name="date_debut${experiencesCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="date_fin${experiencesCount}">Date de fin:</label>
+                  <input type="date" class="form-control" id="date_fin${experiencesCount}" name="date_fin${experiencesCount}">
+              </div>
+              <div class="form-group">
+                  <label for="description${experiencesCount}">Description :</label>
+                  <textarea class="form-control" id="description${experiencesCount}" name="description${experiencesCount}" rows="3"></textarea>
+              </div>
+              <!-- Ajoutez vos champs pour la nouvelle expérience ici -->
+          `;
+          experiencesDiv.appendChild(nouvelleExperienceDiv);
+      }
+  }
+
+  // Fonction pour ajouter dynamiquement des champs de formulaire pour une nouvelle formation
+  function ajouterFormation() {
+      if (formationsCount < 3) {
+          formationsCount++;
+          var formationsDiv = document.getElementById('formations-supplementaires');
+          var nouvelleFormationDiv = document.createElement('div');
+          nouvelleFormationDiv.className = 'formation';
+          nouvelleFormationDiv.innerHTML = `
+              <h3>Formation</h3>
+              <div class="form-group">
+                  <label for="diplome${formationsCount}">Diplôme:</label>
+                  <input type="text" class="form-control" id="diplome${formationsCount}" name="diplome${formationsCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="etablissement${formationsCount}">Établissement:</label>
+                  <input type="text" class="form-control" id="etablissement${formationsCount}" name="etablissement${formationsCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="adresse_formation${formationsCount}">Adresse (Formation ${formationsCount}):</label>
+                  <input type="text" class="form-control" id="adresse_formation${formationsCount}" name="adresse_formation${formationsCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="date_debut_formation${formationsCount}">Date de début (Formation ${formationsCount}):</label>
+                  <input type="date" class="form-control" id="date_debut_formation${formationsCount}" name="date_debut_formation${formationsCount}" required>
+              </div>
+              <div class="form-group">
+                  <label for="date_fin_formation${formationsCount}">Date de fin (Formation ${formationsCount}):</label>
+                  <input type="date" class="form-control" id="date_fin_formation${formationsCount}" name="date_fin_formation${formationsCount}">
+              </div>
+              <!-- Ajoutez vos champs pour la nouvelle formation ici -->
+          `;
+          formationsDiv.appendChild(nouvelleFormationDiv);
+      }
+  }
+</script>
+
+{% endblock %}

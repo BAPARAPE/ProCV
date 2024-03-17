@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+    body{
+        
+        font-family: 'Libre Calson';
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .container{
+        width: 410px;
+        height: 440px;
+        max-width: 100%;
+        border-radius: 5px;
+        border: 3px solid black;
+    }
+    .header{
+        border-bottom: 1px solid black;
+        padding: 1px 6px ;
+        text-align: center;
+    }
+    .header h2{
+        font-size: 28px;
+        color: rgb(65, 131, 190);
+    }
+    .formulaire{
+        padding: 17px 32px;
+    }
+    .form-control{
+        margin-bottom: 6px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+    .form-control label{
+        font-size: 16px;
+        font-family:'Libre Calson' ;
+        color: rgb(65, 131, 190);
+    }
+    .form-control input{
+        height: 36px;
+        width: 100%;
+        border-radius: 5px;
+        display: block;
+        font-family: inherit;
+        border:2px solid black;
+        font-size: 12px;
+    }
+    .formulaire b{
+        color: red;
+    }
+    .formulaire button{
+        margin-top: 0px;
+        background-color:rgb(65, 131, 190);
+        color: #f0f0f0;
+        width: 100%;
+        height: 36px;
+        border: 2px solid black;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    .formulaire p{
+        padding-top: 35px;
+        font-size: 17px;
+    }
+    .formulaire p a{
+        color: rgb(65, 131, 190);
+        font-size: 14px;
+        font-weight: bold;
+    }
+</style>
+<script>
+    function checkInscription() {
+        var mdp = document.getElementById("mdp").value;
+        var errmdp = document.getElementById("errmdp");
+    
+        if (mdp.length < 6) {
+            errmdp.style.display = 'block';
+            return false;
+        } else {
+            errmdp.style.display = 'none';
+            return true;
+        }
+    }
+    
+</script>
+
+<div class="container">
+    <div class="header">
+        <h2>Inscription</h2>
+    </div>
+    
+    <form method="POST" class="formulaire" onsubmit="return checkInscription()">
+        {% csrf_token %}
+        <div class="form-control">
+            <label for="">Nom d'utilisateur</label>
+            <input type="name" name="username"  placeholder="nom" required>
+        </div>
+        <div class="form-control">
+            <label for="">Adresse Mail</label>
+            <input type="email" name="email"  placeholder="nom@gmail.com" required>
+        </div>
+        <div class="form-control">
+            <label for="">Mot de passe</label>
+            <input type="password" name="password" id="mdp" required>
+            <br/>
+            <span id = "errmdp" style = 'display : none'>Le mot de passe est trop court</span>
+        </div>
+       
+        <button type="submit" name="bouton"><i class="fas fa-user-plus"></i>S'inscrire</button>
+    </form>
+</div>
+
+{% endblock %}

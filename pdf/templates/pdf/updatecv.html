@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="static/pdf/styleform.css">
+
+<div class="container">
+    <h2>Modifier CV</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- Informations personnelles -->
+        <div class="form-group">
+            <label for="nom">Nom:</label>
+            <input type="text" class="form-control"  name="nomcv" value="{{ nomcv }}" required>
+        </div>
+        <div class="form-group">
+            <label for="prenom">Prénom:</label>
+            <input type="text" class="form-control"  name="prenomcv" value="{{ prenomcv }}" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" name="emailcv" value="{{ emailcv }}" required>
+        </div>
+        <div class="form-group">
+            <label for="numero">Numéro de téléphone:</label>
+            <input type="text" class="form-control" id="numero" name="numero" value="{{ numero }}" required>
+        </div>
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" class="form-control" id="adresse" name="adresse" value="{{ adresse }}" required>
+        </div>
+        <div class="form-group">
+            <label for="profil">Profil professionnel:</label>
+            <input type="text" class="form-control" id="profil" name="profil" value="{{ profil }}" required>
+        </div>
+        <div class="form-group">
+            <label for="competence">Compétences:</label>
+            <input type="text" class="form-control" id="competence" name="competence" value="{{ competence }}" required>
+        </div>
+        <div class="form-group">
+            <label for="interet">Centre d'intérêt:</label>
+            <input type="text" class="form-control" id="interet" name="interet" value="{{ interet }}" required>
+        </div>
+
+        <!-- Expériences -->
+        {% for experience in experiences %}
+        <div id="experiences">
+            <h3>Expérience</h3>
+            <div class="form-group">
+                <label for="poste1">Poste:</label>
+                <input type="text" class="form-control" id="poste1" name="poste1" value="{{ experience.poste }}" required>
+            </div>
+            <div class="form-group">
+                <label for="societe1">Société:</label>
+                <input type="text" class="form-control" id="societe1" name="societe1" value="{{ experience.societe }}" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse_exp1">Adresse:</label>
+                <input type="text" class="form-control" id="adresse_exp1" name="adresse_exp1" value="{{ experience.adresse_exp }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_debut1">Date de début:</label>
+                <input type="text" class="form-control" id="date_debut1" name="date_debut1" value="{{ experience.date_debut }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_fin1">Date de fin:</label>
+                <input type="teext" class="form-control" id="date_fin1" name="date_fin1" value="{{ experience.date_fin }}">
+            </div>
+            <div class="form-group">
+                <label for="description1">Description :</label>
+                <textarea class="form-control" id="description1" name="description1" rows="3">{{ experience.description }}</textarea>
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Formations -->
+        {% for formation in formations %}
+        <div id="formations">
+            <h3>Formation</h3>
+            <div class="form-group">
+                <label for="diplome1">Diplôme:</label>
+                <input type="text" class="form-control" id="diplome1" name="diplome1" value="{{ formation.diplome }}" required>
+            </div>
+            <div class="form-group">
+                <label for="etablissement1">Établissement:</label>
+                <input type="text" class="form-control" id="etablissement1" name="etablissement1" value="{{ formation.etablissement }}" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse_formation1">Adresse (Formation 1):</label>
+                <input type="text" class="form-control" id="adresse_formation1" name="adresse_formation1" value="{{ formation.adresse_formation }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_debut_formation1">Date de début (Formation 1):</label>
+                <input type="text" class="form-control" id="date_debut_formation1" name="date_debut_formation1" value="{{ formation.date_debut_formation }}" required>
+            </div>
+            <div class="form-group">
+                <label for="date_fin_formation1">Date de fin (Formation 1):</label>
+                <input type="text" class="form-control" id="date_fin_formation1" name="date_fin_formation1" value="{{ formation.date_fin_formation }}">
+            </div>
+        </div>
+        {% endfor %}
+
+        <!-- Langue -->
+        <div class="form-group">
+            <label for="anglais">Niveau d'anglais:</label>
+            <select class="form-control" id="anglais" name="anglais" required>
+                <option value="Débutant" {% if anglais == "Débutant" %} selected {% endif %}>Débutant</option>
+                <option value="Intermédiaire" {% if anglais == "Intermédiaire" %} selected {% endif %}>Intermédiaire</option>
+                <option value="Avancé" {% if anglais == "Avancé" %} selected {% endif %}>Avancé</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="francais">Niveau de français:</label>
+            <select class="form-control" id="francais" name="francais" required>
+                <option value="Débutant" {% if francais == "Débutant" %} selected {% endif %}>Débutant</option>
+                <option value="Intermédiaire" {% if francais == "Intermédiaire" %} selected {% endif %}>Intermédiaire</option>
+                <option value="Avancé" {% if francais == "Avancé" %} selected {% endif %}>Avancé</option>
+            </select>
+        </div>
+
+        <!-- Ajoutez vos champs pour la langue ici -->
+
+        <button type="submit" class="btn-submit">Modifier CV</button>
+    </form>
+</div>
+
+{% endblock %}
